@@ -37,3 +37,22 @@ header p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-left: 10px;
 }
+
+.banner {
+    text-align: left;
+    color: #fff;
+    background: #034d30;
+    line-height: 29px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    font-family: monospace;
+    height: 30px;
+    display: flex;
+    transition: .5s
+}
+
+div#selector>div {
+    flex-basis: 30%
+}

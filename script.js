@@ -1,87 +1,95 @@
-window.onload = function() {
-    canvas = document.getElementById("canvas");
-    ctx = canvas.getContext("2d");
-    document.addEventListener("keydown", keyDownEvent);
-    setInterval(renderizaJogo, 100);
-
-}
-
 //Declaração das variaveis
-let cobraDirecaoX = cobraDirecaoY = 10;
-let comidaDirecaoX = comidaDirecaoY = 15;
-let telaDirecaoX = telaDirecaoY = 0;
+var cobraDirecaoX = cobraDirecaoY = 10;
+var comidaDirecaoX = comidaDirecaoY = 15;
+var telaDirecaoX = telaDirecaoY = 0;
 grid = 20;
 tamanhoCauda = [];
-tamanhoPadraoCauda = 5;
+tamanhoPadraoCauda = 2;
 pontuacao = 0;
 
+var tempo_segundos = new Number();
+var tempo_segundos = 1;
+var zerarTempo = 0;
+
+
+window.onload = function() {
+    quadroCanvas = document.getElementById("quadroCanvas");
+    ctx = quadroCanvas.getContext("2d");
+    document.addEventListener("keydown", teclaPressionada);
+    setInterval(renderizaJogo, 100);
+    setInterval(contadorTempo, 1000);
+}
+
 // telaDirecaoX e telaDirecaoY aplica a direção que a cobra irá percorrer
-function keyDownEvent(event) {
+function teclaPressionada(event) {
+
     console.log(event.keyCode);
 
-    switch (event.keyCode) {
-        case 37:
+    switch (event.keyCode) { //verifica qual a tecla foi pressionada
+        case 37: // O 37 é referente a tecla seta para esquerda (Left)
             telaDirecaoX = -1;
             telaDirecaoY = 0;
             break;
-        case 38:
+        case 38: // O 38 é referente a tecla seta para cima (Up)
             telaDirecaoY = -1;
             telaDirecaoX = 0;
             break;
-        case 39:
+        case 39: // O 39 é referente a tecla seta para direta (Right)
             telaDirecaoX = 1;
             telaDirecaoY = 0;
             break;
-        case 40:
+        case 40: // O 40 é referente a tecla seta para baixo (Down)
             telaDirecaoY = 1;
             telaDirecaoX = 0;
             break;
     }
 }
 
+
+
 //Renderiza a posição da cobra na tela
 function renderizaJogo() {
-    cobraDirecaoX += telaDirecaoX;
+
+    cobraDirecaoX += telaDirecaoX; // A posicao da cobra (cobraDirecaoX), recebe a posição da tela onde a cobra esta (telaDirecaoX), isso tambem somando com ela mesma (cobraDirecaoX = cobraDirecaoX + telaDirecaoX)
     cobraDirecaoY += telaDirecaoY;
 
     console.log(cobraDirecaoX);
     if (cobraDirecaoX < 0) {
-        cobraDirecaoX = grid;
+        cobraDirecaoX = grid - 1;
     }
-    if (cobraDirecaoX > grid) {
+    if (cobraDirecaoX > grid - 1) {
         cobraDirecaoX = 0;
     }
     if (cobraDirecaoY < 0) {
-        cobraDirecaoY = grid;
+        cobraDirecaoY = grid - 1;
     }
-    if (cobraDirecaoY > grid) {
+    if (cobraDirecaoY > grid - 1) {
         cobraDirecaoY = 0;
     }
 
-    //aplica cor em gradient no fundo da tela do canvas
-    var grd = ctx.createLinearGradient(0, 100, 700, 200);
-    grd.addColorStop(0, "#21610B");
-    grd.addColorStop(1, "white");
-    ctx.fillStyle = grd;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    //aplica cor em gradient no fundo da tela do quadroCanvas
+    var corQuadroCanvas = ctx.createLinearGradient(0, 100, 700, 200);
+    corQuadroCanvas.addColorStop(0, "#21610B");
+    corQuadroCanvas.addColorStop(1, "white");
+    ctx.fillStyle = corQuadroCanvas;
+    ctx.fillRect(0, 0, quadroCanvas.width, quadroCanvas.height);
 
-    //Se a cobra comer, aumento o tamanho da cauda
+    //Se a cobra comer, aumenta o tamanho da cauda 
     ctx.fillStyle = "#0B1907";
     for (var i = 0; i < tamanhoCauda.length; i++) {
         ctx.fillRect(tamanhoCauda[i].x * grid, tamanhoCauda[i].y * grid, grid - 1, grid - 1);
         if (tamanhoCauda[i].x == cobraDirecaoX && tamanhoCauda[i].y == cobraDirecaoY) {
-            tamanhoPadraoCauda = 5;
+            tamanhoPadraoCauda = 2; // a cobra voltará para o seu tamanho incial, caso a cobra bata nela mesma.
+            tempo_segundos = 0;
         }
+
     }
-
-
     tamanhoCauda.push({ x: cobraDirecaoX, y: cobraDirecaoY });
-    pontucao = tamanhoCauda.length;
+    pontuacao = tamanhoCauda.length;
     while (tamanhoCauda.length > tamanhoPadraoCauda) {
         tamanhoCauda.shift();
 
     }
-
 
 
     //Se a cobra comer, reposiciona a comida na tela
@@ -92,12 +100,39 @@ function renderizaJogo() {
         comidaDirecaoX = Math.floor(Math.random() * grid);
         comidaDirecaoY = Math.floor(Math.random() * grid);
 
-
     }
+
+
     //Será mostrado a pontuação
-    pontuacao = pontucao - 6;
+    pontuacao = pontuacao - 3;
     document.getElementById("pontuacao").innerHTML = pontuacao;
+}
 
 
+//Mostra o tempo do jogo com duas casas decimais (hora, minuto,segundo)
+function contadorTempo() {
+    if (tempo_segundos > zerarTempo) {
+        formatacaoTempo(tempo_segundos);
+        tempo_segundos++;
 
+    } else {
+        document.getElementById("time").innerHTML = "00:00:00";
+        tempo_segundos++;
+    }
+}
+
+
+function formatacaoTempo(s) {
+    function duas_casas(numero) {
+        if (numero <= 9) {
+            numero = "0" + numero;
+        }
+        return numero;
+    }
+    var hora = duas_casas(Math.trunc(s / 3600));
+    var minuto = duas_casas(Math.trunc((s % 3600) / 60));
+    var segundo = duas_casas((s % 3600) % 60);
+    var formatado = hora + ":" + minuto + ":" + segundo;
+    document.getElementById("time").innerHTML = formatado;
+    return formatado;
 }

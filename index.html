@@ -14,13 +14,16 @@
 </head>
 
 <body>
-    <header classe="score">
-        <p>Pontuação:</p>
-        <p id=pontuacao></p>
+    <header class="score">
+        <div class="banner" id="selector">
+            <div>Jogo Da Cobrinha</div>
+            <div>Time :<span id="time">0</span></div>
+            <div>Pontuacao :<span id="pontuacao">0</span></div>
+        </div>
     </header>
 
     <div class="containerCanvas">
-        <canvas id="canvas" width="400" height="400"></canvas>
+        <canvas id="quadroCanvas" width="400" height="400"></canvas>
     </div>
     <script src="script.js"></script>
 </body>
