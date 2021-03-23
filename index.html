@@ -2,29 +2,37 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treinamento -DIO- Jogo Snake</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Cobrinha</title>
+  <link rel="stylesheet" href="style.css">
 
-    <!--responsividade-->
-    <link rel="stylesheet" href="css/responsive.css">
-
+  <!--responsividade-->
+  <link rel="stylesheet" href="responsive.css">
 </head>
-<body>
-    <div class="img-fundo"></div>
-    <header class="score">
-        <div class="banner" id="selector">
-            <div>Jogo Da Cobrinha</div>
-            <div>Time :<span id="time">0</span></div>
-            <div>Pontuacao :<span id="pontuacao">0</span></div>
-        </div>
-    </header>
-   
-    <div class="containerCanvas">
-        <canvas id="quadroCanvas" width="400" height="400"></canvas>
-    </div>
-    <script src="script.js"></script>
-</body>
 
-</html>
+<body>
+<section class="img-fundo">
+    <div class="container">
+      <div class="left">
+        <header class="score">
+          <div class="menu" id="selector">
+              <div>Jogo Da Cobrinha</div>
+              <div>Time : <span id="time">0</span></div>
+              <div>Pontuacao : <span id="pontuacao">0</span></div>
+          </div>
+        </header>
+      </div>
+      <div class="center"></div>    
+        <div class="content">
+          <div class="containerCanvas">
+            <canvas id="quadroCanvas" width="400" height="450"></canvas>
+          </div>
+        </div>      
+      </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+
+<body>
