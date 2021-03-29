@@ -19,6 +19,7 @@
 - 28-02-2021 - Realizado refatoração. Aplicado conceitos de Codigo Limpo. Diminuido tamanho das funções, com uma a duas funcionalidades.
 - 20-03-2021 - Ajuste horario e pontuação.
 - 23-03-2021 - Alteração de Layout
+- 29-03-2021 - Ajuste de responsividade
 
 ## Site Publicado no link abaixo:
 

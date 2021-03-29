@@ -1,79 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap");
 * {
   padding: 0;
-  margin: 0;
+  margin: 0; 
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-html {
+body {
   font-family: "Montserrat";
 }
 
+
 section {
-  min-height: 100vh;
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;  
+  height: 100vh;
   width: 100%;
-  display: flex;
-  align-items: center;
+  padding: 2%;
+  background: url(./img/img-body.jpeg) no-repeat center;
+}
+
+.left_score {
+  display: flex;  
   justify-content: center;
-}
-
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 50px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-}
-
-.left {
-  width: 45%;
-  min-height: 550px;
+  flex-direction: column;
+  width: 34rem;
+  height: 34rem;   
   background: url(./img/img-left.jpeg) no-repeat left;
   border-radius: 8px;
+  font-size: 1.6rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bolder; 
+  text-shadow: 0.13rem 0.13rem 0.5rem #f00619;  
+ 
 }
 
-.center {
-  width: 45%;
-  min-height: 500px;
-  background: url(./img/img-center.jpeg) no-repeat center / cover;
+.left_score div{    
+    padding: 1rem; 
+    margin-top: 1.7rem;  
+}
+
+
+.right_canvas { 
+  margin-top: 1.6rem;
   border-radius: 8px;
   margin-left: -290px;
 }
 
-.containerCanvas {
-  width: 45%;
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-  padding: 30px;
-  border-radius: 8px;
-  color: white;
-  margin-left: -280px;
-}
-
-header {
-  display: flex;
-  align-items: center;
-}
-
-.menu{
-  font-size: 18px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-left: 5px;
-  font-weight: bolder;  
-  margin-top: 12%;
-  text-shadow: 2px 2px 8px #f00619;
-}
-
-.menu div{ 
-    margin-top: 30%
-}
-
-.img-fundo {
-  background: url(./img/img-body.jpeg) ;
-}
 
 canvas{
   border-radius: 8px;
+  width: 30rem;
+  height: 30rem;  
 }
