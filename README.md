@@ -24,7 +24,7 @@
 
 ## Site Publicado no link abaixo:
 
-  []()
+  [https://camila-github.github.io/projeto-dio-canvas-js-jogo-cobrinha/](https://camila-github.github.io/projeto-dio-canvas-js-jogo-cobrinha/)
 
   ## Vídeo de demonstração do aplicativo
 
