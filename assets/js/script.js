@@ -95,7 +95,6 @@ const renderizarJogo = () => {
     mostrarPontuacao(); //Mostra a pontuação
 }
 
-
 //Mostra o tempo do jogo com duas casas decimais (hora, minuto,segundo)
 const contadorTempo = () => {
     if (tempo_segundos++ > zerarTempo) {

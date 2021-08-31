@@ -88,7 +88,6 @@
     .left_score {
         width: 40rem;
         height: 42rem;
-       
         display: flex;
         flex-direction: row;
         font-size: 1.2rem;
@@ -106,5 +105,3 @@
         margin-left: 10rem;
     }
 }
-
-

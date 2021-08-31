@@ -10,7 +10,6 @@ body {
   font-family: "Montserrat";
 }
 
-
 section {
   display: flex;
   flex-direction: row; 
@@ -18,7 +17,7 @@ section {
   height: 100vh;
   width: 100%;
   padding: 2%;
-  background: url(./img/img-body.jpeg) no-repeat center;
+  background: url(/assets/img/img-body.jpeg) no-repeat center;
 }
 
 .left_score {
@@ -27,13 +26,12 @@ section {
   flex-direction: column;
   width: 34rem;
   height: 34rem;   
-  background: url(./img/img-left.jpeg) no-repeat left;
+  background: url(/assets/img/img-left.jpeg) no-repeat left;
   border-radius: 8px;
   font-size: 1.6rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bolder; 
   text-shadow: 0.13rem 0.13rem 0.5rem #f00619;  
- 
 }
 
 .left_score div{    
@@ -41,13 +39,11 @@ section {
     margin-top: 1.7rem;  
 }
 
-
 .right_canvas { 
   margin-top: 1.6rem;
   border-radius: 8px;
   margin-left: -290px;
 }
-
 
 canvas{
   border-radius: 8px;
