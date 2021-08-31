@@ -29,7 +29,7 @@
   ## Vídeo de demonstração do aplicativo
 
 <p align="center">
-   <img src=""/>
+   <img src="https://github.com/camila-github/projeto-dio-canvas-js-jogo-cobrinha/blob/master/docs/video.gif"/>
 </p>
 
 
