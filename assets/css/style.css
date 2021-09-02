@@ -17,7 +17,7 @@ section {
   height: 100vh;
   width: 100%;
   padding: 2%;
-  background: url(/assets/img/img-body.jpeg) no-repeat center;
+  background: url('../img/img-body.jpeg') no-repeat center;
 }
 
 .left_score {
@@ -26,7 +26,7 @@ section {
   flex-direction: column;
   width: 34rem;
   height: 34rem;   
-  background: url(/assets/img/img-left.jpeg) no-repeat left;
+  background: url('../img/img-left.jpeg') no-repeat left;
   border-radius: 8px;
   font-size: 1.6rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
